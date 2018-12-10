@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}post_archive.html{% endblock %}
+
+{% block content %}
+<div id="content">
+<h1>최신글 목록</h1>
+<h1>{% now "N d, Y" %}</h1>
+<br/>
+<hr>
+    <ul>
+        {% for post in object_list %}
+        <li>{{ post.modify_date|date:"Y-m-d" }}&nbsp;&nbsp;&nbsp;
+        <a href="{{ post.get_absolute_url }}"><strong>{{ post.title }}</strong></a></li>
+        {% endfor %}
+    </ul>
+<hr>
+</div>
+{% endblock %}
